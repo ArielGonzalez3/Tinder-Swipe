@@ -47,8 +47,8 @@ const DECISION_THRESHOLD = 75
       const IS_RIGHT = pullDeltaX > 0
 
       const CHOICE_EL = IS_RIGHT
-        ? ACTUAL_CARD.querySelector('.choice .like')
-        : ACTUAL_CARD.querySelector('.choice .nope')
+        ? ACTUAL_CARD.querySelectorAll('.choice .like')
+        : ACTUAL_CARD.querySelectorAll('.choice .nope')
 
       CHOICE_EL.style.opacity = OPACITY
     }
@@ -77,7 +77,7 @@ const DECISION_THRESHOLD = 75
         ACTUAL_CARD.classList.remove('go-right', 'go-left')
 
         ACTUAL_CARD.querySelectorAll('.choice').forEach(choice => {
-          choice.style.OPACITY = 0
+          choice.style.opacity = 0
         })
       }
 
@@ -93,7 +93,7 @@ const DECISION_THRESHOLD = 75
       // Reset the choice info opacity
       ACTUAL_CARD
         .querySelectorAll(".choice")
-        .forEach((el) => (el.style.opacity = 0));
+        .forEach((el) => (el.style.OPACITY = 0));
     }
   }
 

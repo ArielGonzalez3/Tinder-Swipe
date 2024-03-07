@@ -14,35 +14,34 @@
     overflow: hidden;
     user-select: none;
     background: #e5e5e5;
+    padding: 1.5rem;
   }
-  .white-bkg {
+  .bkg-phone {
     position: absolute;
     background: #f6f6f6;
     inset: 0;
     z-index: -10;
   }
-  .shadow{
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
-  }
+
   main {
     background: url('./iphone.webp') no-repeat;
     background-size: contain;
-    width: 320px;
-    height: 640px;
+    width: 20rem;
+    height: 40rem;
     display: flex;
     position: relative;
   }
 
   section {
-    width: 100%;
-    border-radius: 32px;
+    width: 100vw;
+    border-radius: 2rem;
     display: flex;
-    gap: 24px;
+    gap: 1.5rem;
     flex-direction: column;
     overflow: hidden;
     position: relative;
-    padding: 16px 6px;
-    margin: 24px;
+    padding: 1rem 0.37rem;
+    margin: 1.5rem;
   }
 
   header {
@@ -51,25 +50,25 @@
     padding-left: 1rem;
 
     & img {
-      width: 24px;
-      height: 24px;
+      width: 1.5rem;
+      height: 1.5rem;
     }
   }
 
   footer {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    padding: 0 24px;
+    gap: 0.75rem;
+    padding: 0 1.5rem;
     justify-content: center;
     align-items: center;
 
     & button {
       background: url('./tinder-icons.webp') no-repeat;
-      background-position: 0px 0px;
-      background-size: 175px;
-      height: 32px;
-      width: 32px;
+      background-position: 0 0;
+      background-size: 10.9rem;
+      height: 2rem;
+      width: 2rem;
       border-radius: 50%;
       border: 0;
       cursor: pointer;
@@ -80,25 +79,25 @@
       }
 
       &.is-big {
-        background-size: 250px;
-        width: 48px;
-        height: 48px;
+        background-size: 15.62rem;
+        width: 3rem;
+        height: 3rem;
       }
 
       &.is-undo {
-        background-position: -140px 0;
+        background-position: -8.75rem 0;
       }
 
       &.is-remove {
-        background-position: -150px 0;
+        background-position: -9.37rem 0;
       }
 
       &.is-fav {
-        background-position: -50px 0;
+        background-position: -3.12rem 0;
       }
 
       &.is-star {
-        background-position: -70px 0px;
+        background-position: -4.37rem 0px;
       }
     }
   }
@@ -113,15 +112,15 @@
       display: grid;
       place-content: center;
       color: #777;
-      font-size: 14px;
+      font-size: 0.87rem;
       text-align: center;
       height: 100%;
       z-index: -1;
     }
 
     & article {
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+      border-radius: 0.5rem;
+      box-shadow: 0 0 0.62rem rgba(0, 0, 0, .3);
       cursor: grab;
       overflow: hidden;
       position: absolute;
@@ -149,18 +148,18 @@
       }
 
       & .choice {
-        border-radius: 8px;
+        border-radius: 0.5rem;
         color: black;
-        border: 4px solid;
+        border: 0.25rem solid;
         z-index: 9999;
         position: absolute;
-        top: 32px;
-        right: 16px;
+        top: 2rem;
+        right: 1rem;
         opacity: 0;
-        padding: 4px 8px;
-        font-size: 24px;
+        padding: 0.25rem 0.5rem;
+        font-size: 1.5rem;
         font-weight: bold;
-        text-shadow: 0 0 10px rgba(0, 0, 0, .3);
+        text-shadow: 0 0 0.62rem rgba(0, 0, 0, .3);
         width: fit-content;
 
         & .nope {
@@ -172,7 +171,7 @@
         & .like {
           border-color: #63ff68;
           color: #63ff68;
-          left: 16px;
+          left: 1rem;
           transform: rotate(-30deg);
         }
       }
@@ -191,7 +190,7 @@
         align-items: flex-end;
         height: 100%;
         width: 100%;
-        padding: 16px;
+        padding: 1rem;
         z-index: 3;
         background: linear-gradient(to top,
             #00000088 20%,
@@ -199,8 +198,8 @@
       }
 
       & span {
-        margin-left: 6px;
-        font-size: 18px;
+        margin-left: 0.37rem;
+        font-size: 1.12rem;
         line-height: 1.4;
         font-weight: 400;
       }
