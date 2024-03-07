@@ -7,11 +7,11 @@ const DECISION_THRESHOLD = 75
     if (isAnimating) return
 
     // get the first article element
-    const actualCard = event.target.closest('article')
-    if (!actualCard) return
+    const ACTUAL_CARD = event.target.closest('article')
+    if (!ACTUAL_CARD) return
 
     // get initial position of mouse or finger
-    const startX = event.pageX ?? event.touches[0].pageX
+    const START_X = event.pageX ?? event.touches[0].pageX
 
     // listen the mouse and touch movements
     document.addEventListener('mousemove', onMove)
@@ -22,10 +22,10 @@ const DECISION_THRESHOLD = 75
 
     function onMove(event) {
       // current position of mouse or finger
-      const currentX = event.pageX ?? event.touches[0].pageX
+      const CURRENT_X = event.pageX ?? event.touches[0].pageX
 
       // the distance between the initial and current position
-      pullDeltaX = currentX - startX
+      pullDeltaX = CURRENT_X - START_X
 
       // there is no distance traveled in X axis
       if (pullDeltaX === 0) return
@@ -34,23 +34,23 @@ const DECISION_THRESHOLD = 75
       isAnimating = true
 
       // calculate the rotation of the card using the distance
-      const deg = pullDeltaX / 14
+      const DEG = pullDeltaX / 14
 
       // apply the transformation to the card
-      actualCard.style.transform = `translateX(${pullDeltaX}px) rotate(${deg}deg)`
+      ACTUAL_CARD.style.transform = `translateX(${pullDeltaX}px) rotate(${deg}deg)`
 
       // change the cursor to grabbing
-      actualCard.style.cursor = 'grabbing'
+      ACTUAL_CARD.style.cursor = 'grabbing'
 
       // change opacity of the choice info
-      const opacity = Math.abs(pullDeltaX) / 100
-      const isRight = pullDeltaX > 0
+      const OPACITY = Math.abs(pullDeltaX) / 100
+      const IS_RIGHT = pullDeltaX > 0
 
-      const choiceEl = isRight
-        ? actualCard.querySelector('.choice.like')
-        : actualCard.querySelector('.choice.nope')
+      const CHOICE_EL = IS_RIGHT
+        ? ACTUAL_CARD.querySelector('.choice .like')
+        : ACTUAL_CARD.querySelector('.choice .nope')
 
-      choiceEl.style.opacity = opacity
+      CHOICE_EL.style.opacity = OPACITY
     }
 
     function onEnd(event) {
@@ -61,37 +61,37 @@ const DECISION_THRESHOLD = 75
       document.removeEventListener('touchmove', onMove)
       document.removeEventListener('touchend', onEnd)
 
-      // saber si el usuario tomo una decisión
-      const decisionMade = Math.abs(pullDeltaX) >= DECISION_THRESHOLD
+      // Know if the useer makes the decision
+      const DECISION_MADE = Math.abs(pullDeltaX) >= DECISION_THRESHOLD
 
-      if (decisionMade) {
-        const goRight = pullDeltaX >= 0
+      if (DECISION_MADE) {
+        const GO_RIGHT = pullDeltaX >= 0
 
-        // add class according to the decision
-        actualCard.classList.add(goRight ? 'go-right' : 'go-left')
-        actualCard.addEventListener('transitionend', () => {
-          actualCard.remove()
+        // Add class according to the decision
+        ACTUAL_CARD.classList.add(GO_RIGHT ? 'go-right' : 'go-left')
+        ACTUAL_CARD.addEventListener('transitionend', () => {
+          ACTUAL_CARD.remove()
         })
       } else {
-        actualCard.classList.add('reset')
-        actualCard.classList.remove('go-right', 'go-left')
+        ACTUAL_CARD.classList.add('reset')
+        ACTUAL_CARD.classList.remove('go-right', 'go-left')
 
-        actualCard.querySelectorAll('.choice').forEach(choice => {
-          choice.style.opacity = 0
+        ACTUAL_CARD.querySelectorAll('.choice').forEach(choice => {
+          choice.style.OPACITY = 0
         })
       }
 
-      // reset the variables
-      actualCard.addEventListener('transitionend', () => {
-        actualCard.removeAttribute('style')
-        actualCard.classList.remove('reset')
+      // Reset the variables
+      ACTUAL_CARD.addEventListener('transitionend', () => {
+        ACTUAL_CARD.removeAttribute('style')
+        ACTUAL_CARD.classList.remove('reset')
 
         pullDeltaX = 0
         isAnimating = false
       })
 
-      // reset the choice info opacity
-      actualCard
+      // Reset the choice info opacity
+      ACTUAL_CARD
         .querySelectorAll(".choice")
         .forEach((el) => (el.style.opacity = 0));
     }

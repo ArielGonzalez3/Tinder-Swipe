@@ -163,13 +163,13 @@
         text-shadow: 0 0 10px rgba(0, 0, 0, .3);
         width: fit-content;
 
-        &.nope {
+        & .nope {
           border-color: #ff6e63;
           color: #ff6e63;
           transform: rotate(30deg);
         }
 
-        &.like {
+        & .like {
           border-color: #63ff68;
           color: #63ff68;
           left: 16px;
